@@ -1,7 +1,5 @@
 __pycache__
-csv
-Jupter
-PowerBi
+jupternotes
 notused
 reports
 *.csv
@@ -9,3 +7,4 @@ reports
 *.json
 *.pbix
 *ini
+*ipynb
