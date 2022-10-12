@@ -1,0 +1,11 @@
+__pycache__
+csv
+Jupter
+PowerBi
+notused
+reports
+*.csv
+*.xlsx
+*.json
+*.pbix
+*ini
