@@ -8,7 +8,8 @@ if not ini.is_file():
     config['email']= {}
     config['email']= {'username':'',
                     'mail_from':'',                    
-                    'mail_to':''}
+                    'mail_to':'',
+                    'at':''}
                   
     with open('config.ini', 'w') as configfile:
         config.write(configfile)
