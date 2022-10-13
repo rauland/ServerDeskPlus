@@ -2,14 +2,14 @@ import smtplib, os, config
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
-fields = config.get()
-fields = fields['email']
+conf = config.get()
+conf = conf['email']
 
 def email(mail_subject, mail_body, mail_to, tech) :
-    username = fields['username']
+    username = conf['username']
     password = os.environ.get('smtp_pwd')
-    mail_from = fields['mail_from']
-    mail_to = fields['mail_to'] # Test Email
+    mail_from = conf['mail_from']
+    mail_to = conf['mail_to'] # Test Email
     # mail_subject = "Test Subject"
     # mail_body = "This is a test message"
 
