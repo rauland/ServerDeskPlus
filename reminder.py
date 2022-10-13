@@ -18,12 +18,8 @@ assigned = assigned[['request.id','request.subject','request.requester.name','re
 for assign in assigned['request.id']:
     assigned['request.id'].loc[assigned['request.id'] == assign] = f"""<a href="{url}/WorkOrder.do?woMode=viewWO&amp;woID={assign}">{assign}</a>"""
 
-# assigned.loc[assigned['request.id']]=f"""<a href="{url}/WorkOrder.do?woMode=viewWO&amp;woID={assigned['request.id']}target="_blank"></a>"""
-
 for tech in technician:
     to_email = assigned.loc[assigned['request.technician.name'] == tech]
     tech_email = tech.replace(" ", "")+f"{at}"
     body = to_email.to_html(index=False, escape=False)
     send.email("⚠️ Unassigned Ticket Categories", body, tech_email, tech)
-
-# <a href="{url}/WorkOrder.do?woMode=viewWO&amp;woID=56966" target="_blank"></a>
