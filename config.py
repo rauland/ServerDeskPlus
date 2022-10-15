@@ -14,7 +14,11 @@ if not ini.is_file():
     with open('config.ini', 'w') as configfile:
         config.write(configfile)
 
-def get():
-    config = configparser.ConfigParser()
-    config.read('config.ini')
-    return config
+conf = configparser.ConfigParser()
+conf.read('config.ini')
+
+url = conf['DEFAULT']['url']
+username = conf['email']['username']
+mail_from = conf['email']['mail_from']
+mail_to = conf['email']['mail_to']
+at = conf['email']['at']

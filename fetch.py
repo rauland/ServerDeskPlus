@@ -2,8 +2,7 @@ import requests, os, json, time, aiohttp, asyncio
 import ticket, epoch, config
 from default import Parms
 
-conf = config.get()
-url = f"{conf['DEFAULT']['url']}/api/v3/requests"
+url = f"{config.url}/api/v3/requests"
 headers = {"TECHNICIAN_KEY":os.environ.get('TECHNICIAN_KEY')}
 today = epoch.datetime.datetime.today().strftime('%m-%d-%Y')
 

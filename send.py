@@ -2,16 +2,8 @@ import smtplib, os, config
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
-conf = config.get()
-conf = conf['email']
-
-def email(mail_subject, mail_body, mail_to, tech) :
-    username = conf['username']
-    password = os.environ.get('smtp_pwd')
-    mail_from = conf['mail_from']
-    mail_to = conf['mail_to'] # Test Email
-    # mail_subject = "Test Subject"
-    # mail_body = "This is a test message"
+def email(mail_subject, mail_body, mail_to, tech):
+    mail_to = config.mail_to # Test Email
 
     html = f"""\
     <html>
@@ -26,13 +18,13 @@ def email(mail_subject, mail_body, mail_to, tech) :
     """
 
     mimemsg = MIMEMultipart()
-    mimemsg['From']=mail_from
+    mimemsg['From']=config.mail_from
     mimemsg['To']=mail_to
     # mimemsg['CC']= fields['mail_to']  # Test Email
     mimemsg['Subject']=mail_subject
     mimemsg.attach(MIMEText(html, 'html'))
     connection = smtplib.SMTP(host='smtp.office365.com', port=587)
     connection.starttls()
-    connection.login(username,password)
+    connection.login(config.username,os.environ.get('smtp_pwd'))
     connection.send_message(mimemsg)
     connection.quit()
