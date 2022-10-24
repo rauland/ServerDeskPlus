@@ -3,7 +3,8 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
 def email(mail_subject, mail_body, mail_to, tech):
-    mail_to = config.mail_to # Test Email
+    if config.debug_flag:
+        mail_to = config.mail_to # Test Email
 
     html = f"""\
     <html>
