@@ -9,7 +9,7 @@ if not ini.is_file():
     config['email']= {'username':'',
                     'mail_from':'',                    
                     'mail_to':'',
-                    'at':''}
+                    'at':'',}
                   
     with open('config.ini', 'w') as configfile:
         config.write(configfile)
@@ -22,4 +22,5 @@ username = conf['email']['username']
 mail_from = conf['email']['mail_from']
 mail_to = conf['email']['mail_to']
 at = conf['email']['at']
-debug_flag = ['email']['debug_flag']
+debug_flag = conf['email']['debug_flag']
+message = conf['email']['message']

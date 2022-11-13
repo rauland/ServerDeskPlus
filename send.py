@@ -3,15 +3,15 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
 def email(mail_subject, mail_body, mail_to, tech):
-    if config.debug_flag:
-        mail_to = config.mail_to # Test Email
+    # if config.debug_flag:
+        # mail_to = config.mail_to # Test Email
 
     html = f"""\
     <html>
     <head></head>
     <body>
         <p>Hi {tech.split()[0]},<br>
-        Please assign all categories to the following tickets before the end of the month.</p>
+        {config.message}.</p>
         {mail_body}
         <p>beep boop</p>
     </body>

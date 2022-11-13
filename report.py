@@ -13,11 +13,11 @@ def getjson(query, months=1, prevmonth=1, idonly=False):
         return asyncio.run(fetch.tickets(request_list))
 
 
-def reportquery():
+def reportquery(prevmonth = 1):
     ids = []
-    ids += getjson("open", idonly=True)
-    ids += getjson("created", months=13, idonly=True)
-    ids += getjson("closed", months=13, idonly=True)
+    ids += getjson("open", idonly=True,prevmonth=prevmonth)
+    ids += getjson("created", months=13, idonly=True,prevmonth=prevmonth)
+    ids += getjson("closed", months=13, idonly=True,prevmonth=prevmonth)
 
     ids = list(set(ids))
 
